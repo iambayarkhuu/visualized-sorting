@@ -1173,7 +1173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6267b0ba05412af46b0a1456e1fbf825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfElements: 100000
+  numberOfElements: 10
   delay: 0.5
   Cylinder: {fileID: 6879357904169625457, guid: e2fc5ff4ca1634a449eb8e4628cda9d4, type: 3}
   gameObjects: []
