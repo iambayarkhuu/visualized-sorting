@@ -19,28 +19,14 @@ public class DataHelper : MonoBehaviour
             Swap(array, i, j);       // Swap elements in the first array
             
             // Start the SwapShapes coroutine to animate the swap
-            yield return coroutineStarter.StartCoroutine(SwapShapes(shapes, i, j, delay));
             Swap(array2, i, j);      // Swap elements in the second array
+            
+            yield return coroutineStarter.StartCoroutine(SwapShapes(shapes, i, j, delay));
 
         }
     }
 
-
-    // Swap method to exchange elements at positions i and j
-    private static void Swap<T>(T[] array, int i, int j)
-    {
-        (array[j], array[i]) = (array[i], array[j]);
-    }
-
-    private static void Swap<T>(T[] array, int i, int j, string k)
-    {
-        if(k=="gameObject")
-        {
-            (array[j], array[i]) = (array[i], array[j]);
-
-        }
-    }
-
+    // Swap shapes
     public static IEnumerator SwapShapes(GameObject[] shapes, int index1, int index2, float duration)
     {
         Vector3 startPos1 = shapes[index1].transform.position;
@@ -59,11 +45,29 @@ public class DataHelper : MonoBehaviour
         // Final positions to ensure exact swap
         shapes[index1].transform.position = startPos2;
         shapes[index2].transform.position = startPos1;
-
+        yield return null;
         // Swap GameObject references to keep tracking consistent
-        GameObject temp = shapes[index1];
-        shapes[index1] = shapes[index2];
-        shapes[index2] = temp;
+        // GameObject temp = shapes[index1];
+        // shapes[index1] = shapes[index2];
+        // shapes[index2] = temp;
     }
+    
+
+
+    // Swap method to exchange elements at positions i and j
+    private static void Swap<T>(T[] array, int i, int j)
+    {
+        (array[j], array[i]) = (array[i], array[j]);
+    }
+
+    private static void Swap<T>(T[] array, int i, int j, string k)
+    {
+        if(k=="gameObject")
+        {
+            (array[j], array[i]) = (array[i], array[j]);
+
+        }
+    }
+
     
 }   
